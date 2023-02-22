@@ -8,6 +8,7 @@ import {
 } from "./store/selectors/products.selectors";
 import {
   addProductToCartAction,
+  addProductToCartAsyncAction,
   removeProductFromCartAction,
 } from "./store/actions/products.actions";
 import { getUsernameSelector } from "./store/selectors/users.selectors";
@@ -56,7 +57,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addProductToCart: (productId) => {
-    dispatch(addProductToCartAction(productId));
+    dispatch(addProductToCartAsyncAction(productId));
     dispatch(updateUsernameAction("Afek"));
   },
   removeProductFromCart: (productId) => {
