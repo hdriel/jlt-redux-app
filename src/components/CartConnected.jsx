@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { connect } from "react-redux";
 
 import {
   getTotalPriceSelector,
@@ -7,12 +7,7 @@ import {
 } from "../store/selectors/products.selectors";
 import Cart from "./Cart";
 
-function CartConnected({}) {
-  const { selected, totalPrice } = useSelector((state) => ({
-    totalPrice: getTotalPriceSelector(state),
-    selected: getSelectedProductsSelector(state),
-  }));
-
+function CartConnected({ selected, totalPrice }) {
   const totalProducts = Object.values(selected).reduce(
     (total, products) => total + products,
     0
@@ -21,4 +16,9 @@ function CartConnected({}) {
   return <Cart totalPrice={totalPrice} totalProducts={totalProducts} />;
 }
 
-export default CartConnected;
+const mapStateToProps = (state) => ({
+  totalPrice: getTotalPriceSelector(state),
+  selected: getSelectedProductsSelector(state),
+});
+
+export default connect(mapStateToProps)(CartConnected);
