@@ -1,5 +1,9 @@
 import { PRODUCTS } from "../../consts";
-import { ADD_TO_CART, DELETE_FROM_CART } from "../actions/products.actions";
+import {
+  ADD_TO_CART,
+  DELETE_FROM_CART,
+  INIT_PRODUCTS,
+} from "../actions/products.actions";
 
 const initialState = {
   productList: PRODUCTS,
@@ -9,6 +13,12 @@ const initialState = {
 
 export const productsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case INIT_PRODUCTS:
+      return {
+        ...state,
+        productList: action.data ?? [],
+      };
+
     case ADD_TO_CART: {
       const productId = action.productId;
       const price =

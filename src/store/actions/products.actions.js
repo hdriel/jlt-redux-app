@@ -1,5 +1,4 @@
-import { getSelectedProductsSelector } from "../selectors/products.selectors";
-
+export const INIT_PRODUCTS = "INIT_PRODUCTS";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const DELETE_FROM_CART = "DELETE_FROM_CART";
 
@@ -8,6 +7,10 @@ function sleep(ms = 0) {
     setTimeout(() => resolve(), ms);
   });
 }
+
+export const initProductsListAction = (products) => {
+  return { type: INIT_PRODUCTS, data: products };
+};
 
 export const addProductToCartAction = (productId) => {
   return { type: ADD_TO_CART, productId };

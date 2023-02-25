@@ -1,24 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import {
-  getTotalPriceSelector,
-  getSelectedProductsSelector,
-} from "../store/selectors/products.selectors";
+import { AiOutlineShoppingCart, AiOutlineDollar } from "react-icons/all";
 
-function Cart() {
-  const { selected, totalPrice } = useSelector((state) => ({
-    totalPrice: getTotalPriceSelector(state),
-    selected: getSelectedProductsSelector(state),
-  }));
-
-  const totalProducts = Object.values(selected).reduce(
-    (total, products) => total + products,
-    0
-  );
-
+function Cart({ totalProducts = 0, totalPrice = 0 }) {
   return (
     <div className="cart-container">
-      TOTAL PRICE: ${totalPrice} Cart ({totalProducts})
+      TOTAL <AiOutlineDollar />
+      {totalPrice} <AiOutlineShoppingCart /> ({totalProducts})
     </div>
   );
 }
