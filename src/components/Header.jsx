@@ -1,11 +1,11 @@
 import React from "react";
-import Cart from "./Cart";
+import CartConnected from "./CartConnected";
 
 function Header({ title }) {
   return (
     <div className="header-container">
       <div className="header-title">{title}</div>
-      <Cart />
+      <CartConnected />
     </div>
   );
 }

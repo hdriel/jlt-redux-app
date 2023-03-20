@@ -57,7 +57,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addProductToCart: (productId) => {
-    dispatch(addProductToCartAsyncAction(productId));
+    dispatch(addProductToCartAction(productId));
     dispatch(updateUsernameAction("Afek"));
   },
   removeProductFromCart: (productId) => {
